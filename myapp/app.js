@@ -4,16 +4,46 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
+//To use a router from Controller in main app file
+//and then call use() to add the Router to the middleware handling path
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+var elementRouter = require("./routes/elements");
 
 var app = express();
 
 /*
+// a callback route handler function for HTTP GET request to the site root ('/')
 app.get("/", function (req, res) {
   res.send("Hello World!");
 });
 */
+
+app.all("/secret", function (req, res, next) {
+  console.log("Accessing the secret section ...");
+  next(); // pass control to the next handler
+});
+
+// view engine setup
+app.set("views", path.join(__dirname, "views"));
+app.use(express.static(path.join(__dirname, "public")));
+
+// view engine setup
+app.use(express.static(__dirname + "/views"));
+//app.use(express.static(__dirname + "/stylesheets"));
+
+app.get("/", function (req, res) {
+  res.sendFile("index.html");
+  //It will find and locate index.html from View or Scripts
+});
+
+app.get("/heatmap", function (req, res) {
+  res.sendFile(path.join(_dirname + "/heatmap.html"));
+});
+
+app.get("/elements", function (req, res) {
+  res.sendFile(path.join(_dirname + "/elements.html"));
+});
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -25,8 +55,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+//Those routes are accessible from /home/ or /home/heatmap
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/elements", elementRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
