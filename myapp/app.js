@@ -17,6 +17,23 @@ app.get("/", function (req, res) {
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
+app.use(express.static(path.join(__dirname, "public")));
+
+// view engine setup
+app.use(express.static(__dirname + "/views"));
+//app.use(express.static(__dirname + "/stylesheets"));
+
+app.get("/", function (req, res) {
+  res.sendFile("index.html");
+  //It will find and locate index.html from View or Scripts
+});
+
+app.get("/heatmap", function (req, res) {
+  res.sendFile(path.join(_dirname + "/heatmap.html"));
+});
+
+// view engine setup
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
 
 app.use(logger("dev"));
