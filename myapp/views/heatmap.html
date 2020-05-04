@@ -12,7 +12,12 @@
 
 <script>
   // set the dimensions and margins of the graph
-  var margin = { top: 80, right: 25, bottom: 30, left: 40 },
+  var margin = {
+      top: 80,
+      right: 25,
+      bottom: 30,
+      left: 40
+    },
     width = 450 - margin.left - margin.right,
     height = 450 - margin.top - margin.bottom;
 
@@ -150,7 +155,7 @@
     .attr("y", -50)
     .attr("text-anchor", "left")
     .style("font-size", "22px")
-    .text("A d3.js heatmap");
+    .text("Heat map");
 
   // Add subtitle to graph
   svg
@@ -161,5 +166,5 @@
     .style("font-size", "14px")
     .style("fill", "grey")
     .style("max-width", 400)
-    .text("A short description of the take-away message of this chart.");
+    .text("A short description of a graph using the elements.");
 </script>
