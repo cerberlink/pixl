@@ -26,8 +26,9 @@ html {
   font-size: 16px;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+ 
   text-decoration: none;
+
 }
 
 .dropdown {
@@ -79,7 +80,7 @@ html {
 
 .paragraph {
   text-align: center;
-  padding: 15em;
+  padding: 30em;
 }
 
 .paragraph h2 {
@@ -110,24 +111,20 @@ html {
 /*footer*/
 
 
-.section {
-    width: 100%;
-    display: inline-block;
-    background: #ccc;
-    height: 60vh;
-    text-align: center;
-    font-size: 22px;
-    font-weight: 700;
-    text-decoration: underline;
-}
+
 .footer-distributed {
+  
+    left: 0;
+    bottom: 0;
+    width: 100%;
     background-color: #b73239;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
     box-sizing: border-box;
     width: 100%;
     text-align: center;
     font: normal 16px sans-serif;
-    padding: 45px 50px;
+ padding:5px;
+  
 }
     .footer-distributed p {
         font-size: 22px;
@@ -199,4 +196,70 @@ html {
 
 .footer-distributed p.footer-links a:hover {
     text-decoration: underline;
+}
+
+
+
+
+
+
+
+/*about us page*/
+
+.column {
+    
+    width: 25%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+}
+
+.about-section {
+    padding: 10px;
+    text-align: center;
+    background-color: white;
+    color: black;
+    border-bottom: solid 3px #b73239;
+}
+
+.container {
+    padding: 0 16px;
+}
+
+    .container::after, .row::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+.title {
+    color: grey;
+}
+
+.button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+    .button:hover {
+        background-color: #555;
+    }
+.rows {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    /* margin-right: -15px; */
+    /* margin-left: -15px; */
 }
