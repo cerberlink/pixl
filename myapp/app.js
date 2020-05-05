@@ -9,6 +9,12 @@ var logger = require("morgan");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var elementRouter = require("./routes/elements");
+var mgRouter = require("./routes/mg");
+var alRouter = require("./routes/al");
+var caRouter = require("./routes/ca");
+var tiRouter = require("./routes/ti");
+var feRouter = require("./routes/fe");
+var siRouter = require("./routes/si");
 
 var app = express();
 
@@ -19,10 +25,10 @@ app.get("/", function (req, res) {
 });
 */
 
-app.all("/secret", function (req, res, next) {
-  console.log("Accessing the secret section ...");
-  next(); // pass control to the next handler
-});
+//app.all("/secret", function (req, res, next) {
+//console.log("Accessing the secret section ...");
+//next(); // pass control to the next handler
+//});
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -30,10 +36,10 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // view engine setup
 app.use(express.static(__dirname + "/views"));
-//app.use(express.static(__dirname + "/stylesheets"));
+app.use(express.static(__dirname + "/stylesheets"));
 
 app.get("/", function (req, res) {
-  res.sendFile("index.html");
+  res.sendFile(path.join(__dirname + "elements.html"));
   //It will find and locate index.html from View or Scripts
 });
 
@@ -67,6 +73,7 @@ app.use("/ca", caRouter);
 app.use("/ti", tiRouter);
 app.use("/fe", feRouter);
 app.use("/si", siRouter);
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
