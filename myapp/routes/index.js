@@ -12,7 +12,7 @@ router.use('/si', require('./element.js'));
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
-  //res.sendFile("Test route");
+  //res.sendFile('index.html');
 });
 
 router.get('/mg', function(req, res, next){
