@@ -37,13 +37,15 @@ app.get("/", function (req, res) {
   //It will find and locate index.html from View or Scripts
 });
 
-app.get("/heatmap", function (req, res) {
+/*
+app.get("/", function (req, res) {
   res.sendFile(path.join(_dirname + "/heatmap.html"));
 });
 
 app.get("/elements", function (req, res) {
   res.sendFile(path.join(_dirname + "/elements.html"));
 });
+*/
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -59,7 +61,12 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/elements", elementRouter);
-
+app.use("/mg", mgRouter);
+app.use("/al", alRouter);
+app.use("/ca", caRouter);
+app.use("/ti", tiRouter);
+app.use("/fe", feRouter);
+app.use("/si", siRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
