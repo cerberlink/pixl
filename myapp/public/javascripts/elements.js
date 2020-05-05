@@ -304,7 +304,7 @@ $(function () {
             .attr("text-anchor", "left")
             .style("font-size", "22px")
             .attr("font-weight", "bold")
-            .text("Heatmap for " + name + " (Detector " + detector + ")");
+            .text("Heatmap for " + name + " (Detector " + detect + ")");
     }
     // create continuous color legend
     function drawLegend(selector_id, colorscale) {
@@ -331,12 +331,12 @@ $(function () {
             .style("top", margin.top + "px")
             .style("left", margin.left + "px")
             .node();
-        var ctx = canvas.getContext("2d");
+        var context = canvas.getContext("2d");
         var legendscale = d3
             .scaleLinear()
             .range([1, legendheight - margin.top - margin.bottom])
             .domain(colorscale.domain());
-        var image = ctx.createImageData(1, legendheight);
+        var image = context.createImageData(1, legendheight);
         d3.range(legendheight).forEach(function (i) {
             var c = d3.rgb(colorscale(legendscale.invert(i)));
             image.data[4 * i] = c.r;
@@ -344,7 +344,7 @@ $(function () {
             image.data[4 * i + 2] = c.b;
             image.data[4 * i + 3] = 255;
         });
-        ctx.putImageData(image, 0, 0);
+        context.putImageData(image, 0, 0);
         var legendaxis = d3.axisRight().scale(legendscale).tickSize(6).ticks(8);
         var svg = d3
             .select(selector_id)
