@@ -13,7 +13,6 @@
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="/myapp/public/javascripts/elements.js"></script>
-
 </head>
 
 <body class="element-page">
@@ -36,7 +35,29 @@
             </div>
         </div>
     </div>
-
+    <!-- Create a div where the graph will take place -->
+    <input type="hidden" id="elementId" name="elementId" value="{{ element }}" />
+    <input type="hidden" id="elementNameId" name="elementNameId" value="{{ elementName }}" />
+    <div class="container">
+        <div class="d-flex flex-row">
+            <div class="d-flex justify-content-start">
+                <div id="detector"></div>
+            </div>
+            <div id="legend"></div>
+        </div>
+        <div class="detector-group btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-light active">
+                <input type="radio" name="detector-select" id="detA-btn" class="detector-btns" autocomplete="off"
+                    value="A" checked="checked" /> Detector A
+            </label>
+            <label class="btn btn-light"> <input type="radio" name="detector-select" id="detB-btn" class="detector-btns"
+                    autocomplete="off" value="B" /> Detector B </label>
+        </div>
+        {{!-- PMC,Detector,Mg_%,Al_%,Ca_%,Ti_%,Fe_%,Si_%,Mg_int,Al_int,Ca_int,Ti_int,Fe_int,Si_int,image_i,image_j --}}
+        <div class="dt">
+            <table id="dtElement" class="table table-striped table-bordered" width="100%"></table>
+        </div>
+    </div>
 </body>
 
 </html>
