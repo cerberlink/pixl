@@ -175,9 +175,22 @@ input[type="number"] {
   display: block;
 }
 
+.jumbotron {
+    color: white;
+    background-image: url('../images/space_shuttle.jpg');
+    background-position: 30% 70%;
+    background-size: 100%;
+    padding:200px;
+}
+.jumbotron h2{
+    text-align:center;
+}
+    .jumbotron p {
+        text-align: center;
+    }
 .paragraph {
   text-align: center;
-  padding: 30em;
+  padding: 10em;
 }
 
 .paragraph h2 {
@@ -188,6 +201,10 @@ input[type="number"] {
 .detectors {
   text-align: center;
   padding: 20em;
+}
+.btns {
+    text-align: center;
+    padding: 100px 60px 10px 20px;
 }
 
 .btn {
