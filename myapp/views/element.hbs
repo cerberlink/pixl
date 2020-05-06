@@ -21,82 +21,82 @@
 </head>
 
 <body class="element-page">
-    <!-- PMC,Mg,Al,Ca,Ti,Fe,Si,image_i,image_j -->
-    <!-- Navigation -->
-    <div class="navbar">
-        <a class="navbartext" href="/">PIXL Heatmaps</a>
-        <a class="about " href="/">Home</a>
-        <a class="about " href="/about">About Us</a>
-        <div class="dropdown">
-            <button class="dropbtn">
-                Elements
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a class="dropdown-item" href="/mg">Magnesium</a>
-                <a class="dropdown-item" href="/al">Aluminum</a>
-                <a class="dropdown-item" href="/ca">Calcium</a>
-                <a class="dropdown-item" href="/ti">Titanium</a>
-                <a class="dropdown-item" href="/fe">Iron</a>
-                <a class="dropdown-item" href="/si">Silicon</a>
-            </div>
-        </div>
+  <!-- PMC,Mg,Al,Ca,Ti,Fe,Si,image_i,image_j -->
+  <!-- Navigation -->
+  <div class="navbar">
+    <a class="navbartext" href="/">PIXL Heatmaps</a>
+    <a class="about " href="/">Home</a>
+    <a class="about " href="/about">About Us</a>
+    <div class="dropdown">
+      <button class="dropbtn">
+        Elements
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a class="dropdown-item" href="/mg">Magnesium</a>
+        <a class="dropdown-item" href="/al">Aluminum</a>
+        <a class="dropdown-item" href="/ca">Calcium</a>
+        <a class="dropdown-item" href="/ti">Titanium</a>
+        <a class="dropdown-item" href="/fe">Iron</a>
+        <a class="dropdown-item" href="/si">Silicon</a>
+      </div>
     </div>
-    <!-- Create a div where the graph will take place -->
+  </div>
+  <!-- Create a div where the graph will take place -->
 
-    <input type="hidden" id="elementId" name="elementId" value="{{ element }}" />
+  <input type="hidden" id="elementId" name="elementId" value="{{ element }}" />
 
-    <input type="hidden" id="elementNameId" name="elementNameId" value="{{ elementName }}" />
-    <div class="container">
-        <div class="d-flex flex-row">
-            <div class="d-flex justify-content-start">
-                <div id="detector"></div>
-            </div>
+  <input type="hidden" id="elementNameId" name="elementNameId" value="{{ elementName }}" />
+  <div class="container">
+    <div class="d-flex flex-row">
+      <div class="d-flex justify-content-start">
+        <div id="detector"></div>
+      </div>
 
-            <div id="legend"></div>
-        </div>
-
-        <br />
-
-        <div class="detector-group btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-light active">
-                <input type="radio" name="detector-select" id="detA-btn" class="detector-btns" autocomplete="off" value="A"
-                       checked="checked" /> Detector A
-            </label>
-            <label class="btn btn-light">
-                <input type="radio" name="detector-select" id="detB-btn" class="detector-btns"
-                       autocomplete="off" value="B" /> Detector B
-            </label>
-        </div>
-        {{!-- PMC,Detector,Mg_%,Al_%,Ca_%,Ti_%,Fe_%,Si_%,Mg_int,Al_int,Ca_int,Ti_int,Fe_int,Si_int,image_i,image_j --}}
-        <div class="dt">
-            <table id="dtElement" class="table table-striped table-bordered" width="100%"></table>
-        </div>
+      <div id="legend"></div>
     </div>
 
-    <div class="footer-distributed">
+    <br />
 
-        <p>Designed by: </p>
-        <div class="footer-left">
-
-            <p class="footer-links">
-
-
-                <a>Guillermo Haro</a>
-
-                <a>Carlos Guerrero</a>
-
-                <a>Colin McAteer</a>
-
-                <a>Dongmin Shin</a>
-
-                <a>Jaysen Gan</a>
-            </p>
-
-            <p>PIXL &copy; 2020</p>
-        </div>
-
+    <div class="detector-group btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-light active">
+        <input type="radio" name="detector-select" id="detA-btn" class="detector-btns" autocomplete="off" value="A"
+          checked="checked" /> Detector A
+      </label>
+      <label class="btn btn-light">
+        <input type="radio" name="detector-select" id="detB-btn" class="detector-btns" autocomplete="off" value="B" />
+        Detector B
+      </label>
     </div>
+    {{!-- PMC,Detector,Mg_%,Al_%,Ca_%,Ti_%,Fe_%,Si_%,Mg_int,Al_int,Ca_int,Ti_int,Fe_int,Si_int,image_i,image_j --}}
+    <div class="dt">
+      <table id="dtElement" class="table table-striped table-bordered" width="100%"></table>
+    </div>
+  </div>
+
+  <div class="footer-distributed">
+
+    <p>Designed by: </p>
+    <div class="footer-left">
+
+      <p class="footer-links">
+
+
+        <a>Guillermo Haro</a>
+
+        <a>Carlos Guerrero</a>
+
+        <a>Colin McAteer</a>
+
+        <a>Dongmin Shin</a>
+
+        <a>Jaysen Gan</a>
+      </p>
+
+      <p>PIXL &copy; 2020</p>
+    </div>
+
+  </div>
 </body>
 
 </html>
