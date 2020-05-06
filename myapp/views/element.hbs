@@ -23,25 +23,28 @@
 <body class="element-page">
   <!-- PMC,Mg,Al,Ca,Ti,Fe,Si,image_i,image_j -->
   <!-- Navigation -->
-  <div class="navbar">
-    <a class="navbartext" href="/">PIXL Heatmaps</a>
-    <a class="about " href="/">Home</a>
-    <a class="about " href="/about">About Us</a>
-    <div class="dropdown">
-      <button class="dropbtn">
-        Elements
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a class="dropdown-item" href="/mg">Magnesium</a>
-        <a class="dropdown-item" href="/al">Aluminum</a>
-        <a class="dropdown-item" href="/ca">Calcium</a>
-        <a class="dropdown-item" href="/ti">Titanium</a>
-        <a class="dropdown-item" href="/fe">Iron</a>
-        <a class="dropdown-item" href="/si">Silicon</a>
-      </div>
+    <div class="navbar">
+        <a class="navbartext" href="/">PIXL Heatmaps</a>
+        <a class="about " href="/">Home</a>
+        <a href="https://www.nasa.gov/"><img src="../public/images/nasa.png" width="200" height="90"></a>
+        <a class="about " href="/about">About Us</a>
+        <a class="about" href="/data">Analytical</a>
+        <div class="dropdown">
+            <button class="dropbtn">
+                Elements
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a class="dropdown-item" href="/mg">Magnesium</a>
+                <a class="dropdown-item" href="/al">Aluminum</a>
+                <a class="dropdown-item" href="/ca">Calcium</a>
+                <a class="dropdown-item" href="/ti">Titanium</a>
+                <a class="dropdown-item" href="/fe">Iron</a>
+                <a class="dropdown-item" href="/si">Silicon</a>
+                <a class="about" href="/data">Analytical</a>
+            </div>
+        </div>
     </div>
-  </div>
   <!-- Create a div where the graph will take place -->
 
   <input type="hidden" id="elementId" name="elementId" value="{{ element }}" />
