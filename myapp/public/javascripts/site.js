@@ -9,7 +9,7 @@ $(function () {
   }
 
   function initDataTable2() {
-    var csvRef = "/References/quantified_element_values.csv";
+    var csvRef = "/public/data/quantified_element_values.csv";
     var minI = Number.MAX_SAFE_INTEGER;
     var maxI = 0;
     var minJ = Number.MAX_SAFE_INTEGER;
@@ -63,30 +63,61 @@ $(function () {
 
       $("#dtElementData").DataTable({
         data: dataSet,
-        columns: [
-          { title: "PMC" },
-          { title: "Detector" },
-          { title: "Mg_%" },
-          { title: "Mg_int" },
-          { title: "Al_%" },
-          { title: "Al_int" },
-          { title: "Ca_%" },
-          { title: "Ca_int" },
-          { title: "Ti_%" },
-          { title: "Ti_int" },
-          { title: "Fe_%" },
-          { title: "Fe_int" },
-          { title: "Si_%" },
-          { title: "Si_int" },
-          { title: "image_i" },
-          { title: "image_j" },
+        columns: [{
+            title: "PMC"
+          },
+          {
+            title: "Detector"
+          },
+          {
+            title: "Mg_%"
+          },
+          {
+            title: "Mg_int"
+          },
+          {
+            title: "Al_%"
+          },
+          {
+            title: "Al_int"
+          },
+          {
+            title: "Ca_%"
+          },
+          {
+            title: "Ca_int"
+          },
+          {
+            title: "Ti_%"
+          },
+          {
+            title: "Ti_int"
+          },
+          {
+            title: "Fe_%"
+          },
+          {
+            title: "Fe_int"
+          },
+          {
+            title: "Si_%"
+          },
+          {
+            title: "Si_int"
+          },
+          {
+            title: "image_i"
+          },
+          {
+            title: "image_j"
+          },
         ],
       });
     });
   }
 
   function initDataTable() {
-    var csvRef = "/References/quantified_element_values.csv";
+    var csvRef = "/public/data/quantified_element_values.csv";
     var element = $("#elementId").val();
     var elementName = $("#elementNameId").val();
     var detector = $("input[name='detector-select']:checked").val() === "A" ? "A" : "B";
@@ -110,7 +141,19 @@ $(function () {
 
       $("#dtElement").DataTable({
         data: dataSet,
-        columns: [{ title: "PMC" }, { title: "Detector" }, { title: element + "_%" }, { title: element + "_int" }, { title: "image_i" }, { title: "image_j" }],
+        columns: [{
+          title: "PMC"
+        }, {
+          title: "Detector"
+        }, {
+          title: element + "_%"
+        }, {
+          title: element + "_int"
+        }, {
+          title: "image_i"
+        }, {
+          title: "image_j"
+        }],
       });
     });
   }
@@ -120,14 +163,19 @@ $(function () {
     var elementName = $("#elementNameId").val();
 
     // var csvRef = $("input[name='detector-select']:checked").val() === "A" ? "References/detA.csv" : "References/detB.csv";
-    var csvRef = "/References/quantified_element_values.csv";
+    var csvRef = "/public/data/quantified_element_values.csv";
     var detector = $("input[name='detector-select']:checked").val() === "A" ? "A" : "B";
     // set the dimensions and margins of the graph
 
     $("svg").remove();
     $("#legend").empty();
 
-    var margin = { top: 140, right: 73, bottom: 50, left: 75 },
+    var margin = {
+        top: 140,
+        right: 73,
+        bottom: 50,
+        left: 75
+      },
       width = 900 - margin.left - margin.right,
       height = 770 - margin.top - margin.bottom;
 
@@ -139,13 +187,13 @@ $(function () {
       .attr("height", height + margin.top + margin.bottom)
       .call(
         d3
-          .zoom()
-          .extent([
-            [0, 0],
-            [width, height],
-          ])
-          .scaleExtent([1, 8])
-          .on("zoom", zoomed)
+        .zoom()
+        .extent([
+          [0, 0],
+          [width, height],
+        ])
+        .scaleExtent([1, 8])
+        .on("zoom", zoomed)
       )
       // .call(
       //   d3.zoom().on("zoom", function () {
@@ -159,7 +207,7 @@ $(function () {
       svg.attr("transform", d3.event.transform);
     }
 
-    svg.append("image").attr("xlink:href", "/References/pixl_original.jpg").attr("class", "pixl-img");
+    svg.append("image").attr("xlink:href", "/public/images/mars.jpg").attr("class", "pixl-img");
 
     //Read the data
     ///References/detector.csv
@@ -367,7 +415,12 @@ $(function () {
   function drawLegend(selector_id, colorscale) {
     var legendheight = 350,
       legendwidth = 100,
-      margin = { top: 10, right: 60, bottom: 10, left: 2 };
+      margin = {
+        top: 10,
+        right: 60,
+        bottom: 10,
+        left: 2
+      };
 
     var canvas = d3
       .select(selector_id)
