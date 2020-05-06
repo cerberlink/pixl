@@ -1,26 +1,34 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" />
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="./stylesheets/style.css" />
-    <title>PIXL Heatmaps</title>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://d3js.org/d3.v4.js"></script>
-    <script src="/myapp/public/javascripts/elements.js"></script>
+  <meta charset="utf-8" />
 
+  <title>PIXL Heatmaps</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" />
+  <link rel="stylesheet" href="../public/stylesheets/site.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+  <script src="../public/javascripts/site.js" defer></script>
 </head>
 
 <body class="element-page">
+  <!-- PMC,Mg,Al,Ca,Ti,Fe,Si,image_i,image_j -->
+  <!-- Navigation -->
     <div class="navbar">
         <a class="navbartext" href="/">PIXL Heatmaps</a>
-        <a class="about" href="/">Home</a>
-        <a class="about" href="/about.html">About Us</a>
+        <a class="about " href="/">Home</a>
+        <a href="https://www.nasa.gov/"><img src="../public/images/nasa.png" width="200" height="90"></a>
+        <a class="about " href="/about">About Us</a>
+        <a class="about" href="/data">Analytical</a>
         <div class="dropdown">
             <button class="dropbtn">
                 Elements
@@ -33,10 +41,65 @@
                 <a class="dropdown-item" href="/ti">Titanium</a>
                 <a class="dropdown-item" href="/fe">Iron</a>
                 <a class="dropdown-item" href="/si">Silicon</a>
+                <a class="about" href="/data">Analytical</a>
             </div>
         </div>
     </div>
+  <!-- Create a div where the graph will take place -->
 
+  <input type="hidden" id="elementId" name="elementId" value="{{ element }}" />
+
+  <input type="hidden" id="elementNameId" name="elementNameId" value="{{ elementName }}" />
+  <div class="container">
+    <div class="d-flex flex-row">
+      <div class="d-flex justify-content-start">
+        <div id="detector"></div>
+      </div>
+
+      <div id="legend"></div>
+    </div>
+
+    <br />
+
+    <div class="btns" data-toggle="buttons">
+      <label class="btn">
+        <input type="radio" name="detector-select" id="detA-btn" class="detector-btns" autocomplete="off" value="A"
+          checked="checked" /> Detector A
+      </label>
+      <label class="btn">
+        <input type="radio" name="detector-select" id="detB-btn" class="detector-btns" autocomplete="off" value="B" />
+        Detector B
+      </label>
+    </div>
+   
+    <div class="dt">
+      <table id="dtElement" class="table table-striped table-bordered" width="100%"></table>
+    </div>
+  </div>
+
+  <div class="footer-distributed">
+
+    <p>Designed by: </p>
+    <div class="footer-left">
+
+      <p class="footer-links">
+
+
+        <a>Guillermo Haro</a>
+
+        <a>Carlos Guerrero</a>
+
+        <a>Colin McAteer</a>
+
+        <a>Dongmin Shin</a>
+
+        <a>Jaysen Gan</a>
+      </p>
+
+      <p>PIXL &copy; 2020</p>
+    </div>
+
+  </div>
 </body>
 
 </html>
